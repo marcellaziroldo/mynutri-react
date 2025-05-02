@@ -1,13 +1,20 @@
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function Recipes() {
   const [recipes, setRecipes] = useState([]);
 
+  const fetchRecipes = async () => {
+    try {
+      const {data} = await axios.get('http://localhost:3001/recipe');
+      setRecipes(data);
+    } catch (error) {
+      console.error('Error fetching recipes:', error);
+    }
+};
+
   useEffect(() => {
-    fetch('/recipes.json')
-      .then((res) => res.json())
-      .then((data) => setRecipes(data))
-      .catch((err) => console.error('Error loading recipes:', err));
+    fetchRecipes()
   }, []);
 
   return (
@@ -19,13 +26,15 @@ function Recipes() {
        
 
           <h4>Ingredients:</h4>
-          <ul>
-          {recipe.ingredients.map((item, idx) => (
-  <li key={idx}>
-    {item.quantity} {item.name} ({item.type})
-  </li>
-))}
-          </ul>
+          {Array.isArray(recipe.ingredients) ? (
+            <ul>
+              {recipe.ingredients.map((ingredient, idx) => (
+                <li key={idx}>{ingredient}</li>
+              ))}
+            </ul>
+          ) : (
+            <p>{recipe.ingredients}</p>
+          )}
 
           <h4>Steps:</h4>
           {Array.isArray(recipe.steps) ? (
@@ -44,38 +53,3 @@ function Recipes() {
 }
 
 export default Recipes;
-
-
-
-/*import React from "react";
-
-export default function Recipes() {
-  return (
-    <div className="page-content">
-      <h2>Healthy Recipes</h2>
-      <p>Explore nutritious, easy-to-make meals that support your health journey.</p>
-
-      <section className="card">
-        <h3>Oatmeal Banana Pancakes</h3>
-        <p>
-          A fiber-rich breakfast option with natural sweetness and no added sugar.
-        </p>
-      </section>
-
-      <section className="card">
-        <h3>Quinoa Veggie Bowl</h3>
-        <p>
-          High-protein meal with fresh vegetables, olive oil, and whole grains.
-        </p>
-      </section>
-
-      <section className="card">
-        <h3>Grilled Chicken & Greens</h3>
-        <p>
-          Lean protein served with sautéed greens, garlic, and lemon. Simple and
-          delicious.
-        </p>
-      </section>
-    </div>
-  );
-}*/

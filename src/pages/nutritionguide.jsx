@@ -32,7 +32,7 @@ export default function NutritionGuide() {
         Learn about macronutrients, healthy plate recommendations, and evaluate your BMI and water intake needs.
       </p>
 
-      <section className="card">
+      <section className="card2">
         <h2>Macronutrients</h2>
         <p>Macronutrients are the essential nutrients your body needs in large amounts to function properly, providing energy and supporting bodily functions, and they include carbohydrates, proteins, and fats. </p>
         <h3> Carbohydrates</h3>
@@ -54,7 +54,7 @@ export default function NutritionGuide() {
 
       </section>
 
-      <section className="card">
+      <section className="card2">
         <h3>Macronutrients</h3>
         <p>When portioning your meals, focus on balancing the nutrients your body needs. An easy way to do this is by using a visual method and following these guidelines:
   
@@ -71,7 +71,7 @@ export default function NutritionGuide() {
        </section>
 
 
-      <section className="card">
+      <section className="card2">
         <h3>BMI Calculator</h3>
         <div className="form-group">
           <label>Weight (kg):</label>
@@ -93,7 +93,7 @@ export default function NutritionGuide() {
         {bmi && <p>Your BMI is: <strong>{bmi}</strong></p>}
       </section>
 
-      <section className="card">
+      <section className="card2">
         <h3>Water Intake Calculator</h3>
         <div className="form-group">
           <label>Weight (kg):</label>

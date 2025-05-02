@@ -12,7 +12,7 @@ export default function Subscribe() {
   return (
     <div className="page-content">
       <h2>Subscribe</h2>
-      <p>Join our community and receive the latest updates and personalized tools.</p>
+      <p>Join our community and receive our monthly newsletter.</p>
 
       <form onSubmit={handleSubmit} className="card">
         <label htmlFor="email">Email:</label>

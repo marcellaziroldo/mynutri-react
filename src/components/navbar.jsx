@@ -10,6 +10,7 @@ export default function Navbar() {
         <li><Link to="/nutrition">Nutrition Guide</Link></li>
         <li><Link to="/recipes">Recipes</Link></li>
         <li><Link to="/subscribe">Subscribe</Link></li>
+        <li><Link to="/admin">Admin</Link></li>
       </ul>
     </nav>
   );
